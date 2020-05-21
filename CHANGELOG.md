@@ -2,8 +2,10 @@
 
 All notable changes to the "react-generator-ts" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [1.0.0]
 
-## [Unreleased]
+Initial Version of the Extension.
 
-- Initial release
+- Includes the ability to create a react component
+- Includes ability to create styled components (with CSS or SCSS files)
+
