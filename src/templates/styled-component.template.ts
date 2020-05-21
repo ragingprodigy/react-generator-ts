@@ -1,0 +1,13 @@
+export const getStyledComponentTemplate = (componentName: string, useSCSS: boolean) => {
+  return `import React, { Component } from 'react';
+import styles from './${componentName}.module.${useSCSS ? 'scss' : 'css'}';
+
+class ${componentName} extends Component {
+  render() {
+    return <div classes={styles.${componentName}}></div>;
+  }
+}
+
+export default ${componentName};
+`;
+};
