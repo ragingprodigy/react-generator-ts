@@ -3,7 +3,7 @@
 	"displayName": "react-generator-ts",
 	"description": "VS Code extension for generating React components in typescript",
 	"version": "1.0.0",
-	"publisher": "Oladapo Omonayajo",
+	"publisher": "Omonayajo",
 	"bugs": {
 		"url": "https://github.com/ragingprodigy/react-generator-ts/issues",
 		"email": "omonayajo@live.com"
@@ -37,15 +37,15 @@
 		"commands": [
 			{
 				"command": "rgt.generateComponent",
-				"title": "React Generator: Generate Component"
+				"title": "RGT: Generate Component"
 			},
 			{
 				"command": "rgt.generateStyledComponent",
-				"title": "React Generator: Generate Styled Component (SCSS)"
+				"title": "RGT: Generate Styled Component (SCSS)"
 			},
 			{
 				"command": "rgt.generateStyledComponentCSS",
-				"title": "React Generator: Generate Styled Component (CSS)"
+				"title": "RGT: Generate Styled Component (CSS)"
 			}
 		],
 		"menus": {
