@@ -8,7 +8,69 @@ import { getComponentTemplate, getStyledComponentTemplate, getStylesheetTemplate
 export function activate(context: ExtensionContext) {
 	console.log('\'react-generator-ts\' is now active!');
 
-	let generateComponent = commands.registerCommand('react-generator-ts.generateComponent', async (uri: Uri) => {
+	let generateStyledComponent = commands.registerCommand('rgt.generateStyledComponent', async (uri: Uri) => {
+		const componentName = await promptForComponentName();
+		if (_.isNil(componentName) || componentName.trim() === '') {
+			window.showErrorMessage('The component name must not be empty');
+			return;
+		}
+
+		let targetDirectory;
+		if (_.isNil(_.get(uri, 'fsPath')) || !lstatSync(uri.fsPath).isDirectory()) {
+			targetDirectory = await promptForTargetDirectory();
+			if (_.isNil(targetDirectory)) {
+				window.showErrorMessage('Please select a valid directory');
+				return;
+			}
+		} else {
+			targetDirectory = uri.fsPath;
+		}
+
+		try {
+			await generateComponentCode(componentName, targetDirectory, true, true);
+			window.showInformationMessage(
+				`Successfully Generated ${componentName} Component`
+			);
+		} catch (error) {
+			window.showErrorMessage(
+				`Error:
+        ${error instanceof Error ? error.message : JSON.stringify(error)}`
+			);
+		}
+	});
+
+	let generateStyledCSSComponent = commands.registerCommand('rgt.generateStyledComponentCSS', async (uri: Uri) => {
+		const componentName = await promptForComponentName();
+		if (_.isNil(componentName) || componentName.trim() === '') {
+			window.showErrorMessage('The component name must not be empty');
+			return;
+		}
+
+		let targetDirectory;
+		if (_.isNil(_.get(uri, 'fsPath')) || !lstatSync(uri.fsPath).isDirectory()) {
+			targetDirectory = await promptForTargetDirectory();
+			if (_.isNil(targetDirectory)) {
+				window.showErrorMessage('Please select a valid directory');
+				return;
+			}
+		} else {
+			targetDirectory = uri.fsPath;
+		}
+
+		try {
+			await generateComponentCode(componentName, targetDirectory, true, false);
+			window.showInformationMessage(
+				`Successfully Generated ${componentName} Component`
+			);
+		} catch (error) {
+			window.showErrorMessage(
+				`Error:
+        ${error instanceof Error ? error.message : JSON.stringify(error)}`
+			);
+		}
+	});
+
+	let generateComponent = commands.registerCommand('rgt.generateComponent', async (uri: Uri) => {
 		const componentName = await promptForComponentName();
 		if (_.isNil(componentName) || componentName.trim() === '') {
 			window.showErrorMessage('The component name must not be empty');
@@ -46,7 +108,7 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
-	context.subscriptions.push(generateComponent);
+	context.subscriptions.push(generateComponent, generateStyledComponent, generateStyledCSSComponent);
 }
 
 async function generateComponentCode(componentName: string, targetDirectory: string, withStylesheet: boolean, useSCSS: boolean) {

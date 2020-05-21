@@ -10,21 +10,41 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:react-generator-ts.generateComponent"
+		"onCommand:rgt.generateComponent",
+		"onCommand:rgt.generateStyledComponent",
+		"onCommand:rgt.generateStyledComponentCSS"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "react-generator-ts.generateComponent",
+				"command": "rgt.generateComponent",
 				"title": "React Generator: Generate Component"
+			},
+			{
+				"command": "rgt.generateStyledComponent",
+				"title": "React Generator: Generate Styled Component (SCSS)"
+			},
+			{
+				"command": "rgt.generateStyledComponentCSS",
+				"title": "React Generator: Generate Styled Component (CSS)"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "react-generator-ts.generateComponent",
+					"command": "rgt.generateComponent",
 					"group": "reactGeneratorGroup@1",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "rgt.generateStyledComponent",
+					"group": "reactGeneratorGroup@2",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "rgt.generateStyledComponentCSS",
+					"group": "reactGeneratorGroup@3",
 					"when": "explorerResourceIsFolder"
 				}
 			]
