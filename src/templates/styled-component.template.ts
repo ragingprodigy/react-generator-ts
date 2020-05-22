@@ -4,7 +4,7 @@ import styles from './${componentName}.module.${useSCSS ? 'scss' : 'css'}';
 
 class ${componentName} extends Component {
   render() {
-    return <div classes={styles.${componentName}}></div>;
+    return <div className={styles.${componentName}}></div>;
   }
 }
 

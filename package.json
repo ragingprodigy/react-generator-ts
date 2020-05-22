@@ -2,7 +2,7 @@
 	"name": "react-generator-ts",
 	"displayName": "react-generator-ts",
 	"description": "VS Code extension for generating React components in typescript",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"publisher": "Omonayajo",
 	"bugs": {
 		"url": "https://github.com/ragingprodigy/react-generator-ts/issues",
