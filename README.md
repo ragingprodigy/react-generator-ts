@@ -20,6 +20,8 @@ Or you can right click on the directory in which you'd like to create the bloc a
 
 ### Alias Commands
 
-- RGT: Generate Styled Component (SCSS)
-- RGT: Generate Styled Component (CSS)
+- RGT: Styled Class Component (SCSS)
+- RGT: Styled Class Component (CSS)
+- RGT: Styled Functional Component (SCSS)
+- RGT: Styled Functional Component (CSS)
 

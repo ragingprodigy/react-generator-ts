@@ -2,6 +2,12 @@
 
 All notable changes to the "react-generator-ts" extension will be documented in this file.
 
+## [1.2.0]
+
+Feature Added
+
+- Added commands for functional component generation
+
 ## [1.1.0]
 
 Critical Update
