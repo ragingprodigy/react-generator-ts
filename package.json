@@ -2,7 +2,7 @@
 	"name": "react-generator-ts",
 	"displayName": "react-generator-ts",
 	"description": "VS Code extension for generating React components in typescript",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"publisher": "Omonayajo",
 	"bugs": {
 		"url": "https://github.com/ragingprodigy/react-generator-ts/issues",
@@ -29,8 +29,10 @@
 	],
 	"activationEvents": [
 		"onCommand:rgt.generateComponent",
-		"onCommand:rgt.generateStyledComponent",
-		"onCommand:rgt.generateStyledComponentCSS"
+		"onCommand:rgt.styledClassComponent",
+		"onCommand:rgt.styledClassComponentCSS",
+		"onCommand:rgt.styledFunctionalComponent",
+		"onCommand:rgt.styledFunctionalComponentCSS"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -40,12 +42,20 @@
 				"title": "RGT: Generate Component"
 			},
 			{
-				"command": "rgt.generateStyledComponent",
-				"title": "RGT: Generate Styled Component (SCSS)"
+				"command": "rgt.styledClassComponent",
+				"title": "RGT: Styled Class Component - (SCSS)"
 			},
 			{
-				"command": "rgt.generateStyledComponentCSS",
-				"title": "RGT: Generate Styled Component (CSS)"
+				"command": "rgt.styledClassComponentCSS",
+				"title": "RGT: Styled Class Component - (CSS)"
+			},
+			{
+				"command": "rgt.styledFunctionalComponent",
+				"title": "RGT: Styled Functional Component - (SCSS)"
+			},
+			{
+				"command": "rgt.styledFunctionalComponentCSS",
+				"title": "RGT: Styled Functional Component - (CSS)"
 			}
 		],
 		"menus": {
@@ -56,13 +66,23 @@
 					"when": "explorerResourceIsFolder"
 				},
 				{
-					"command": "rgt.generateStyledComponent",
+					"command": "rgt.styledClassComponent",
 					"group": "reactGeneratorGroup@2",
 					"when": "explorerResourceIsFolder"
 				},
 				{
-					"command": "rgt.generateStyledComponentCSS",
+					"command": "rgt.styledClassComponentCSS",
 					"group": "reactGeneratorGroup@3",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "rgt.styledFunctionalComponent",
+					"group": "reactGeneratorGroup@4",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "rgt.styledFunctionalComponentCSS",
+					"group": "reactGeneratorGroup@5",
 					"when": "explorerResourceIsFolder"
 				}
 			]
@@ -93,6 +113,7 @@
 		"vscode-test": "^1.3.0"
 	},
 	"dependencies": {
+		"change-case": "^4.1.1",
 		"lodash": "^4.17.15",
 		"mkdirp": "^1.0.4"
 	}

@@ -1,6 +1,7 @@
 export const getStylesheetTemplate = (componentName: string) => {
   return `.${componentName} {
-  height: 100%;
+  display: block;
+  margin: 0 auto;
 }
 `;
 };
